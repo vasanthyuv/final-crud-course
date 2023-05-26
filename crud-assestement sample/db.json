@@ -4,7 +4,7 @@
       "id": 1,
       "title": "HTML",
       "image": "/asset/images/html-5 (1).png",
-      "link": "https://www.w3schools.com/html/",
+      "link": "http://127.0.0.1:5500/crud-assestement%20sample/html.html",
       "description": "Learn the fundamentals of HTML (Hyper Text Markup Language) Beginner",
       "duration": "15hr25mins",
       "price": "RS. 10000"

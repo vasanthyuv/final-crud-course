@@ -56,10 +56,33 @@
   #htmlbasic {
     display: flex;
     justify-content: center;
+    font-family: poppins;
+    color: orangered;
+    text-decoration: overline;
+    text-decoration-color:orangered;
   }
   .basicvedio{
+   margin-left: 200px;
     
   }
+  #advance{
+    display: flex;
+    justify-content: center;
+    font-family: poppins;
+    color: orangered;
+    text-decoration: overline;
+    text-decoration-color:orangered;
+    position: relative;
+    top: 20px;
+  }
+  .advancevedio{
+    margin-left: 370px;
+    margin-top: 20px;
+    display: flex;
+  
+  }
+
+  
 </style>
 
 <body>
@@ -106,8 +129,18 @@
   </div>
   <div id="basicvedio" class="container">
 
-    <video class="basicvedio" width="320" height="240" controls>
-      <source src="asset/vedios/SnapSave.io-HTML Tutorial for Beginners_ HTML Crash Course(720p).mp4" type="video/mp4">
+    <video class="basicvedio" height="400px" controls poster="asset/images/jackson-sophat-wUbNvDTsOIc-unsplash.jpg">
+      <source src="asset/vedio/videoplayback.mp4" type="video/mp4" >
+      <source src="movie.ogg" type="video/ogg">
+    Your browser does not support the video tag.
+    </video>
+   
+  </div>
+
+  <div class="advance">
+    <h1 id="advance">ADVANCED</h1>
+    <video class="advancevedio" height="400px"  controls poster="asset/images/pexels-miguel-á-padriñán-2882568.jpg">
+      <source src="asset/vedio/videoplayback (1).mp4" type="video/mp4" >
       <source src="movie.ogg" type="video/ogg">
     Your browser does not support the video tag.
     </video>
