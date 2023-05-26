@@ -1,0 +1,39 @@
+{
+  "courses": [
+    {
+      "id": 1,
+      "title": "HTML",
+      "image": "/asset/images/html-5 (1).png",
+      "link": "https://www.w3schools.com/html/",
+      "description": "Learn the fundamentals of HTML (Hyper Text Markup Language) Beginner",
+      "duration": "15hr25mins",
+      "price": "RS. 10000"
+    },
+    {
+      "id": 2,
+      "title": "CSS",
+      "image": "/asset/images/css (1).png",
+      "link": "https://www.w3schools.com/css/",
+      "description": "CSS, short for Cascading Style Sheets, is used for styling the html webpage",
+      "duration": "32 Hrs",
+      "price": "Rs. 12000"
+    },
+    {
+      "id": "dsw5ns4hq1685027385092",
+      "title": "JavaScript",
+      "image": "/asset/images/js.png",
+      "link": "https://www.w3schools.com/js/",
+      "description": "JavaScript is used for accessing and manipulating the document dynamically",
+      "duration": "40 hours",
+      "price": "RS. 20000"
+    }
+  ],
+  "credentials": {
+    "username": "awewae",
+    "password": "dfdsfdsf",
+    "credentials": {
+      "username": "shaoro",
+      "password": "Sharon1!@"
+    }
+  }
+}
