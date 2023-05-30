@@ -4,7 +4,7 @@
       "id": 1,
       "title": "HTML",
       "image": "/asset/images/html-5 (1).png",
-      "link": "http://127.0.0.1:5500/crud-assestement%20sample/html.html",
+      "link": "http://127.0.0.1:5500/html.html",
       "description": "Learn the fundamentals of HTML (Hyper Text Markup Language) Beginner",
       "duration": "15hr25mins",
       "price": "RS. 10000"
@@ -13,7 +13,7 @@
       "id": 2,
       "title": "CSS",
       "image": "/asset/images/css (1).png",
-      "link": "http://127.0.0.1:5500/crud-assestement%20sample/css.html",
+      "link": "http://127.0.0.1:5500/css.html",
       "description": "CSS, short for Cascading Style Sheets, is used for styling the html webpage",
       "duration": "32 Hrs",
       "price": "Rs. 12000"
@@ -22,10 +22,10 @@
       "id": "dsw5ns4hq1685027385092",
       "title": "JavaScript",
       "image": "/asset/images/js.png",
-      "link": "http://127.0.0.1:5500/crud-assestement%20sample/js.html",
+      "link": "http://127.0.0.1:5500/js.html",
       "description": "JavaScript is used for accessing and manipulating the document dynamically",
       "duration": "40 hours",
-      "price": "RS. 20000"
+      "price": "RS. 200000"
     }
   ],
   "credentials": {
