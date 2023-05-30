@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+</head>
+<style>
+    body{
+        background-color: rgb(26, 26, 88); /* For browsers that do not support gradients */
+  background-image: linear-gradient(to right, rgb(66, 66, 145));
+  overflow-x: hidden;
+    }
+   
+    li{
+        position: relative;
+        display:inline-block;
+        padding: 20px;
+        left: 950px;
+        font-family: poppins;
+        color: white;
+    }
+    .brand{
+        position: absolute;
+      left: 30px;
+      top: 10px;
+      font-size: 40px;
+      font-family: poppins;
+      color: white;
+   }
+   .head{
+    position: relative;
+    left: 283px;
+    top: 120px;
+    font-family: poppins;
+    color: white;
+    font-size: larger;
+
+
+   }
+   .pre{
+    position: absolute;
+    top: 270px;
+    left: 290px;
+    color: white;
+    font-family: poppins;
+
+   }
+   #loginbutton{
+    width: 100px;
+    height: 40px;
+    border-radius: 95px;
+    background-color: blue;
+    color: white;
+    font-family: poppins;
+    border: 1px blue;
+    font-weight:100;
+    position: absolute;
+    left: 290px;
+    top: 340px;
+    cursor:grab;
+
+   }
+   #threed{
+   
+    position: absolute;
+    left: 600px;
+    top: 50px;
+
+   }
+</style>
+<body>
+    <div class="container-fluid" id="contain">
+    <div class="row" id="nav">
+      
+<a href=""><li>Home</li></a>
+<a href=""><li>About</li></a>
+<a href=""><li>Contact</li></a>
+<a href=""><li>Logout</li></a>
+    </div>
+<span class="brand">StudyGuide</span>
+</div>
+
+<div class="row container">
+    <div class="head">
+        <h1>COURSES</h1>
+        
+    </div>
+    <div class="pre">
+        <pre>join millions of people worldwide as you build
+your own apllication in this epic world             
+        </pre>
+    </div>
+</div>
+
+<div class="row">
+    <button type="submit" id="loginbutton" onclick="redirect()">Login</button>
+</div>
+    <div class="row">
+        <img src="asset/images/Full stack web developer - 480x480.png" id="threed">
+    </div>
+</body>
+</html>
+
+<script> 
+
+function redirect(){
+    window.location.href = "http://127.0.0.1:5500/login.html";
+}
+</script>
