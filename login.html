@@ -214,16 +214,51 @@ $(document).ready(function() {
         }
 
         // Check username and password combinations
-        if (usernameInput === 'Adminaccount7' && passwordInput === 'Adminaccount7') {
-          // Redirect to admin page if username and password are both 'admin'
-          window.location.href = 'http://127.0.0.1:5500/test.html';
-        } else if (usernameInput === 'Useraccount7' && passwordInput === 'Useraccount7') {
-          // Redirect to user page if username and password are both 'user'
-          window.location.href = '/user.html';
-        } else {
-          // Invalid username and password combination
-          alert('Invalid username or password.');
+       // Assuming usernameInput and passwordInput are the input values entered by the user
+
+// Fetch the credentials from the URLs
+Promise.all([
+  fetch('http://localhost:3000/credentials'),
+  fetch('http://localhost:3000/admincredentials')
+])
+  .then(responses => Promise.all(responses.map(response => response.json())))
+  .then(data => {
+    const credentials = data[0];
+    const adminCredentials = data[1];
+
+    // Check if the input matches the admin credentials
+    if (
+      usernameInput === adminCredentials.username &&
+      passwordInput === adminCredentials.password
+    ) {
+      // Redirect to admin page if username and password are both correct
+      window.location.href = 'http://127.0.0.1:5500/admin.html';
+    } else {
+      // Check if the input matches any credentials in the JSON data
+      let matchedCredential = null;
+      Object.keys(credentials).forEach(key => {
+        const credential = credentials[key];
+        if (
+          credential.username === usernameInput &&
+          credential.password === passwordInput
+        ) {
+          matchedCredential = credential;
         }
+      });
+
+      // Redirect to the corresponding page if a matching credential is found
+      if (matchedCredential) {
+        window.location.href = "http://127.0.0.1:5500/user.html";
+      } else {
+        // Invalid username and password combination
+        alert('Invalid username or password.');
+      }
+    }
+  })
+  .catch(error => {
+    console.error('Error fetching credentials:', error);
+  });
+
       });
     });
     </script>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        form {
+            /*  display: flex;
+            justify-content: center;
+            align-items: center;*/
+            margin-top: 10%;
+            height: 350px;
+            width: 350px;
+
+
+
+
+
+        }
+
+        fieldset {
+            height: 350px;
+            width: 350px;
+            border-radius: 6px;
+            backdrop-filter: blur(5px);
+            margin: 0;
+            border-color:black;
+            z-index:2;
+            box-shadow: 1px 1px 1px black;
+
+
+
+
+        }
+
+        label {
+            margin-left: 55px;
+            line-height: 40px;
+            font-weight: bolder;
+            font-size: 20px;
+            font-family: 'Poppins', sans-serif;
+            color: white;
+        }
+
+        input {
+            height: 30px;
+            border-color: black;
+            border-radius: 5px;
+            background-color: transparent;
+
+
+        }
+
+        #sub {
+            position: absolute;
+            left: 180px;
+            height: 30px;
+            width: 60px;
+            border-radius: 6px;
+        }
+
+        body {
+            background-image: url(/asset/images/1375155-macos-purple-abstract-background-4k-pc-wallpaper.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+
+
+        }
+
+        div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            text-align: center;
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <form id="registrationForm" onsubmit="event.preventDefault(); registration();">
+            <fieldset>
+                <h1>Registration~Form</h1>
+                <label>Name</label>
+                <input type="text" required id="name"><br><br>
+                <label for="course">Courses</label>
+                <select id="course">
+                    <optgroup label="Frontend">
+                        <option value="html">HTML</option>
+                        <option value="css">CSS</option>
+                        <option value="javascript">JAVASCRIPT</option>
+                        <option value="typescript">TYPESCRIPT</option>
+                    </optgroup>
+                    <optgroup label="Backend">
+                        <option value="java">JAVA</option>
+                        <option value="php">PHP</option>
+                        <option value="dotnet">DOTNET</option>
+                        <option value="python">python</option>
+                    </optgroup>
+                    <optgroup label="Database">
+                        <option value="java">MS-SQL</option>
+                        <option value="php">ORACLE</option>
+                        <option value="dotnet">MYSQL</option>
+                        <option value="python">POSTGRESQL</option>
+                    </optgroup>
+                </select><br><br>
+                <label for="date">Start Date</label>
+                <select id="Startdate">
+
+                    <option value="27.08.2023">27.08.2023</option>
+                    <option value="css">29.08.2023</option>
+                    <option value="javascript">02.09.2023</option>
+
+                    </optgroup>
+                </select><br><br>
+
+                <label>Email-id</label>
+                <input type="email" id="email"><br><br>
+                <input type="submit" value="submit" id="sub">
+
+
+
+
+
+
+
+
+
+            </fieldset>
+        </form>
+    </div>
+</body>
+
+</html>
+
+<script>
+
+
+    function registration() {
+        // Get form data
+        var name = document.getElementById('name').value;
+        var course = document.getElementById('course').value;
+        /*var startDate = document.getElementById('startdate').value;*/
+        var email = document.getElementById('email').value;
+
+        // Create JSON object
+        var formData = {
+            "name": name,
+            "courses": course,
+            /* "startdate": startDate,*/
+            "emailid": email
+        };
+
+        const url = 'http://localhost:3000/registrationdetails';
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                data.registrationdetails = formData;
+
+
+
+                // Send POST request to server
+                fetch('http://localhost:3000/registrationdetails', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        alert('thanks for Registering');
+                        window.location.href = 'http://127.0.0.1:5500/home.html';
+                        console.log('Data successfully submitted:', data);
+                        // Handle response or perform any additional actions 
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        // Handle error
+                    });
+            })
+
+
+    }
+</script>

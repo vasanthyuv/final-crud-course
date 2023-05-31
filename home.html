@@ -70,6 +70,21 @@
     top: 50px;
 
    }
+   #signinbutton{
+    width: 100px;
+    height: 40px;
+    border-radius: 95px;
+    background-color: blue;
+    color: white;
+    font-family: poppins;
+    border: 1px blue;
+    font-weight:100;
+    position: absolute;
+    left: 400px;
+    top: 340px;
+    cursor:grab;
+
+   }
 </style>
 <body>
     <div class="container-fluid" id="contain">
@@ -78,7 +93,7 @@
 <a href=""><li>Home</li></a>
 <a href=""><li>About</li></a>
 <a href=""><li>Contact</li></a>
-<a href=""><li>Logout</li></a>
+<a href="http://127.0.0.1:5500/registration.html"><li>Register</li></a>
     </div>
 <span class="brand">StudyGuide</span>
 </div>
@@ -97,6 +112,7 @@ your own apllication in this epic world
 
 <div class="row">
     <button type="submit" id="loginbutton" onclick="redirect()">Login</button>
+    <button type="submit" id="signinbutton" onclick="redirectsignin()">Signin</button>
 </div>
     <div class="row">
         <img src="asset/images/Full stack web developer - 480x480.png" id="threed">
@@ -108,5 +124,9 @@ your own apllication in this epic world
 
 function redirect(){
     window.location.href = "http://127.0.0.1:5500/login.html";
+}
+
+function redirectsignin(){
+    window.location.href="http://127.0.0.1:5500/signin.html";
 }
 </script>

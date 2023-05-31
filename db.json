@@ -32,8 +32,17 @@
     "username": "awewae",
     "password": "dfdsfdsf",
     "credentials": {
-      "username": "shaoro",
-      "password": "Sharon1!@"
+      "username": "vasanth",
+      "password": "Vasanth@7"
     }
+  },
+  "admincredentials": {
+    "username": "Adminaccount7",
+    "password": "Adminaccount7"
+  },
+  "registrationdetails": {
+    "name": "vasasasa",
+    "courses": "html",
+    "emailid": "vasa3@gmail.com"
   }
 }
