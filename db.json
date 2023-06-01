@@ -43,6 +43,19 @@
   "registrationdetails": {
     "name": "vasasasa",
     "courses": "html",
-    "emailid": "vasa3@gmail.com"
+    "emailid": "vasa3@gmail.com",
+    "registrationdetails": [
+      {
+        "name": "gokul",
+        "courses": "html",
+        "emailid": "vasanth12@gmail.com"
+      },
+      {
+        "name": "Ram",
+        "startDate": "29.08.2023",
+        "courses": "html",
+        "emailid": "wewewa@sdsds"
+      }
+    ]
   }
 }

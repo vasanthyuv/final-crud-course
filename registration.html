@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" initial-scale=1.0">
+    <meta name="viewport" initial-scale="1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
@@ -116,14 +116,13 @@
                     </optgroup>
                 </select><br><br>
                 <label for="date">Start Date</label>
-                <select id="Startdate">
-
-                    <option value="27.08.2023">27.08.2023</option>
-                    <option value="css">29.08.2023</option>
-                    <option value="javascript">02.09.2023</option>
-
-                    </optgroup>
+                <select id="StartDate">
+                  <option value="27.08.2023">27.08.2023</option>
+                  <option value="29.08.2023">29.08.2023</option>
+                  <option value="02.09.2023">02.09.2023</option>
                 </select><br><br>
+                
+                
 
                 <label>Email-id</label>
                 <input type="email" id="email"><br><br>
@@ -147,50 +146,57 @@
 <script>
 
 
+
+   
     function registration() {
-        // Get form data
-        var name = document.getElementById('name').value;
-        var course = document.getElementById('course').value;
-        /*var startDate = document.getElementById('startdate').value;*/
-        var email = document.getElementById('email').value;
+  // Get form data
+  var name = document.getElementById('name').value;
+  var course = document.getElementById('course').value;
+  var startDate = document.getElementById('StartDate').value;
 
-        // Create JSON object
-        var formData = {
-            "name": name,
-            "courses": course,
-            /* "startdate": startDate,*/
-            "emailid": email
-        };
+  var email = document.getElementById('email').value;
 
-        const url = 'http://localhost:3000/registrationdetails';
-        fetch(url)
-            .then(response => response.json())
-            .then(data => {
-                data.registrationdetails = formData;
+  // Create JSON object
+  var formData = {
+    "name": name,
+    "startDate": startDate,
+    "courses": course,
+    "emailid": email
+  };
+
+  // Fetch the existing data from the server
+  fetch('http://localhost:3000/registrationdetails')
+    .then(response => response.json())
+    .then(data => {
+      // Check if registrationdetails array exists in data
+      if (!data.registrationdetails || !Array.isArray(data.registrationdetails)) {
+        data.registrationdetails = []; // Create an empty array if it doesn't exist
+      }
+
+      // Add the new form data to the existing data
+      data.registrationdetails.push(formData);
+
+      // Send POST request to server with the updated data
+      fetch('http://localhost:3000/registrationdetails', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      })
+      .then(response => response.json())
+      .then(data => {
+        alert('Thanks for Registering');
+        window.location.href = 'http://127.0.0.1:5500/home.html';
+        console.log('Data successfully submitted:', data);
+        // Handle response or perform any additional actions 
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        // Handle error
+      });
+    });
+}
 
 
-
-                // Send POST request to server
-                fetch('http://localhost:3000/registrationdetails', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(formData)
-                })
-                    .then(response => response.json())
-                    .then(data => {
-                        alert('thanks for Registering');
-                        window.location.href = 'http://127.0.0.1:5500/home.html';
-                        console.log('Data successfully submitted:', data);
-                        // Handle response or perform any additional actions 
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                        // Handle error
-                    });
-            })
-
-
-    }
 </script>

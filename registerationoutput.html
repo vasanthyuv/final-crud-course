@@ -17,37 +17,72 @@ background: radial-gradient(circle, rgba(63,94,251,1) 24%, rgba(70,162,252,1) 10
             background-color: aqua;
             margin-left: 170px;
             z-index: -1;
+            text-align: center;
+            margin-top: 30px;
           
             
+        }
+        #display{
+          border: 3px solid rgb(23, 196, 226);
+          border-radius: 5px;
+          height: 30px;
+          width: 60px;
+          position:relative;
+          left: 650px;
+          color: aqua;
+          background-color: black;
+        }
+        #display:hover{
+          color: black;
+          background-color: aqua;
         }
     </style>
 </head>
 <body>
-  <input type="button" value="display" onclick="disp()">
+  <input type="button" id="display" value="display" onclick="disp()">
     <div id="box" class="your-element" data-tilt data-tilt-glare data-tilt-max-glare="0.8"></div>
 </body>
 </html>
 
 <script>
- function disp() {
-      const registrationDetailsUrl = 'http://localhost:3000/registrationdetails';
-      fetch(registrationDetailsUrl)
-        .then(response => response.json())
-        .then(data => {
-          // Update the content of the div with the registration details
-          const boxDiv = document.getElementById('box');
-          boxDiv.innerHTML = `
-            <h2>Registration Details</h2>
-            <p>Name: ${data.registrationdetails.name}</p>
-            <p>Courses: ${data.registrationdetails.courses}</p>
-            <p>Email: ${data.registrationdetails.emailid}</p>
+function disp() {
+  const registrationDetailsUrl = 'http://localhost:3000/registrationdetails';
+  fetch(registrationDetailsUrl)
+    .then(response => response.json())
+    .then(data => {
+      // Check if registrationdetails array exists in data
+      if (data.registrationdetails && Array.isArray(data.registrationdetails) && data.registrationdetails.length > 0) {
+        // Create a variable to store the HTML content
+        let content = '<h2>Registration Details</h2>';
+
+        // Iterate over the registration details array
+        data.registrationdetails.forEach(registration => {
+          // Generate HTML for each registration object
+          content += `
+            <div>
+              <p>Name: ${registration.name}</p>
+              <p>Start Date: ${registration.startDate}</p>
+              <p>Courses: ${registration.courses}</p>
+              <p>Email: ${registration.emailid}</p><br>
+            </div>
           `;
-        })
-        .catch(error => {
-          console.error('Error:', error);
-          // Handle error
         });
-    }
+
+        // Update the content of the div with the registration details
+        const boxDiv = document.getElementById('box');
+        boxDiv.innerHTML = content;
+      } else {
+        const boxDiv = document.getElementById('box');
+        boxDiv.innerHTML = `<p>No registration details found.</p>`;
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      // Handle error
+    });
+}
+
+
 
     /*venilla js*/ 
     var VanillaTilt = (function () {
